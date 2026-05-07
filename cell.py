@@ -14,6 +14,7 @@ class Cell():
         self.__y2 = -1
         self.__win = window
 
+    #calls window class's draw method, not the line method
     def draw(self, x1, x2, y1, y2):
         self.__x1 = x1
         self.__x2 = x2
@@ -35,3 +36,16 @@ class Cell():
         if self.__has_bottom_wall:
             bottom = Line(botleft, botright)
             self.__win.draw_line(bottom, "black")
+        
+    def draw_move(self, to_cell, undo=False):
+        line_color = "red"
+        if undo:
+            line_color = "gray"
+        centerx = (self.__x1 + self.__x2) / 2
+        centery = (self.__y1 + self.__y2) / 2
+        to_cell_centerx = (to_cell.__x1 + to_cell.__x2) / 2
+        to_cell_centery = (to_cell.__y1 + to_cell.__y2) / 2
+        center = Point(centerx, centery)
+        to_cell_center = Point(to_cell_centerx, to_cell_centery)
+        line = Line(center, to_cell_center)
+        self.__win.draw_line(line, line_color)

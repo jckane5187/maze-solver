@@ -1,6 +1,4 @@
-from line import Line
-from point import Point
-from tkinter import Tk, BOTH, Canvas
+import graphics
 
 class Cell():
     def __init__(self, window):
@@ -20,21 +18,21 @@ class Cell():
         self.__x2 = x2
         self.__y1 = y1
         self.__y2 = y2
-        upleft = Point(x1, y1)
-        upright = Point(x2, y1)
-        botleft = Point(x1, y2)
-        botright = Point(x2, y2)
+        upleft = graphics.Point(x1, y1)
+        upright = graphics.Point(x2, y1)
+        botleft = graphics.Point(x1, y2)
+        botright = graphics.Point(x2, y2)
         if self.__has_left_wall:
-            left = Line(upleft, botleft)
+            left = graphics.Line(upleft, botleft)
             self.__win.draw_line(left, "black")
         if self.__has_top_wall:
-            top = Line(upleft, upright)
+            top = graphics.Line(upleft, upright)
             self.__win.draw_line(top, "black")
         if self.__has_right_wall:
-            right = Line(upright, botright)
+            right = graphics.Line(upright, botright)
             self.__win.draw_line(right, "black")
         if self.__has_bottom_wall:
-            bottom = Line(botleft, botright)
+            bottom = graphics.Line(botleft, botright)
             self.__win.draw_line(bottom, "black")
         
     def draw_move(self, to_cell, undo=False):
@@ -45,7 +43,7 @@ class Cell():
         centery = (self.__y1 + self.__y2) / 2
         to_cell_centerx = (to_cell.__x1 + to_cell.__x2) / 2
         to_cell_centery = (to_cell.__y1 + to_cell.__y2) / 2
-        center = Point(centerx, centery)
-        to_cell_center = Point(to_cell_centerx, to_cell_centery)
-        line = Line(center, to_cell_center)
+        center = graphics.Point(centerx, centery)
+        to_cell_center = graphics.Point(to_cell_centerx, to_cell_centery)
+        line = graphics.Line(center, to_cell_center)
         self.__win.draw_line(line, line_color)

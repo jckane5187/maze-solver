@@ -1,6 +1,4 @@
-from line import Line
-from point import Point
-from tkinter import Tk, BOTH, Canvas
+import graphics
 import time
 from cell import Cell
 

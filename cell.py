@@ -1,7 +1,7 @@
 import graphics
 
 class Cell():
-    def __init__(self, window):
+    def __init__(self, window=None):
         self.__has_left_wall = True
         self.__has_right_wall = True
         self.__has_top_wall = True
@@ -22,6 +22,8 @@ class Cell():
         upright = graphics.Point(x2, y1)
         botleft = graphics.Point(x1, y2)
         botright = graphics.Point(x2, y2)
+        if self.__win == None:
+            return
         if self.__has_left_wall:
             left = graphics.Line(upleft, botleft)
             self.__win.draw_line(left, "black")
@@ -46,4 +48,6 @@ class Cell():
         center = graphics.Point(centerx, centery)
         to_cell_center = graphics.Point(to_cell_centerx, to_cell_centery)
         line = graphics.Line(center, to_cell_center)
+        if self.__win == None:
+            return
         self.__win.draw_line(line, line_color)

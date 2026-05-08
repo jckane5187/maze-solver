@@ -23,20 +23,11 @@ class Maze():
                 self.__draw_cell(i, j)
 
     def __draw_cell(self, i, j):
-        x1, x2, y1, y2 = 0, 0, 0, 0
-        if i == 0:
-            x1 = self.__x1
-            x2 = x1 + self.__cell_size_x
-        else:
-            x1 = self.__x1 + (i * self.__cell_size_x)
-            x2 = x1 + self.__cell_size_x
-        
-        if j == 0:
-            y1 = self.__y1
-            y2 = y1 + self.__cell_size_y
-        else:
-            y1 = self.__y1 + (j * self.__cell_size_y)
-            y2 = y1 + self.__cell_size_y
+        x1 = self.__x1 + (i * self.__cell_size_x)
+        x2 = x1 + self.__cell_size_x
+
+        y1 = self.__y1 + (j * self.__cell_size_y)
+        y2 = y1 + self.__cell_size_y
         
         self.__cells[i][j].draw(x1, x2, y1, y2)
         self.__animate()

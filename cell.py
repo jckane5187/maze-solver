@@ -22,20 +22,31 @@ class Cell():
         upright = graphics.Point(x2, y1)
         botleft = graphics.Point(x1, y2)
         botright = graphics.Point(x2, y2)
+        left = graphics.Line(upleft, botleft)
+        top = graphics.Line(upleft, upright)
+        right = graphics.Line(upright, botright)
+        bottom = graphics.Line(botleft, botright)
         if self.__win == None:
             return
         if self.__has_left_wall:
-            left = graphics.Line(upleft, botleft)
             self.__win.draw_line(left, "black")
+        else:
+            self.__win.draw_line(left, "white")
+
         if self.__has_top_wall:
-            top = graphics.Line(upleft, upright)
             self.__win.draw_line(top, "black")
+        else:
+            self.__win.draw_line(top, "white")
+
         if self.__has_right_wall:
-            right = graphics.Line(upright, botright)
             self.__win.draw_line(right, "black")
+        else:
+            self.__win.draw_line(right, "white")
+            
         if self.__has_bottom_wall:
-            bottom = graphics.Line(botleft, botright)
             self.__win.draw_line(bottom, "black")
+        else:
+            self.__win.draw_line(bottom, "white")
         
     def draw_move(self, to_cell, undo=False):
         line_color = "red"

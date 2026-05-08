@@ -23,12 +23,12 @@ class Tests(unittest.TestCase):
         # Check if the top-left cell has its top wall removed
         # Accessing private members using name mangling
         self.assertEqual(
-            m1._Maze__cells[0][0].has_top_wall,
+            m1._Maze__cells[0][0]._Cell__has_top_wall,
             False,
         )
         # Check if the bottom-right cell has its bottom wall removed
         self.assertEqual(
-            m1._Maze__cells[num_cols - 1][num_rows - 1].has_bottom_wall,
+            m1._Maze__cells[num_cols - 1][num_rows - 1]._Cell__has_bottom_wall,
             False,
         )
 

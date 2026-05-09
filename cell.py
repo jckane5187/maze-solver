@@ -11,6 +11,7 @@ class Cell():
         self.__y1 = -1
         self.__y2 = -1
         self.__win = window
+        self.visited = False
 
     #calls window class's draw method, not the line method
     def draw(self, x1, x2, y1, y2):
